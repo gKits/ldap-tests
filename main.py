@@ -16,7 +16,7 @@ server = Server('172.16.221.2', get_info=ALL, use_ssl=False, tls=tls_config)
 # conn.bind()
 
 conn = Connection(server, auto_bind=True, user='TESTDAP\\Administrator', password='Test123!', authentication=NTLM)
-conn.extend.standard.whoAmI()
+conn.extend.standard.who_am_i()
 print(conn)
 
 group_dn = 'cn=TestUsers,ou=0_Groups,dc=TESTDAP,dc=LOCAL'
