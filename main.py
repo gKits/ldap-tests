@@ -1,7 +1,8 @@
 from ldap3 import (
     #  Server,
     Connection,
-    # ALL
+    # ALL,
+    NTLM
 )
 
 
@@ -9,5 +10,5 @@ from ldap3 import (
 # conn = Connection(server)
 # conn.bind()
 
-conn = Connection('172.16.221.2', auto_bind=True)
+conn = Connection('172.16.221.2', auto_bind=True, user='DAP\\Administrator', password='Test123!', authentication=NTLM)
 print(conn)
