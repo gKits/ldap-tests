@@ -5,7 +5,7 @@ from ldap3 import (
     NTLM
 )
 
-server = Server('172.16.221.2', get_info=ALL)
+server = Server('172.16.221.2', get_info=ALL, use_ssl=True)
 # conn = Connection(server)
 # conn.bind()
 
