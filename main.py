@@ -23,8 +23,7 @@ object_class = 'groupOfNames'
 attr = {
     'cn': 'TestUsers',
     'member': 'uid=Administrator,ou=Users,dc=AD-DAP_TEST,dc=testdap,dc=com',
-    'description': 'Test group',
-    'sAMAccountName': 'TestGroup'
+    'description': 'Test group'
 }
 conn.add(group_dn, object_class, attr)
 print(conn)
