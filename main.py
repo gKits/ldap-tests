@@ -17,10 +17,9 @@ server = Server('172.16.221.2', get_info=ALL, use_ssl=False, tls=tls_config)
 
 conn = Connection(server, auto_bind=True, user='TESTDAP\\Administrator', password='Test123!', authentication=NTLM)
 conn.extend.standard.who_am_i()
-print(conn)
 
-group_dn = 'cn=TestUsers,ou=0_Groups,dc=AD-DAP_TEST,dc=testdap,dc=com'
-object_class = 'groupOfNames'
+group_dn = 'cn=TestUsers,ou=TestOU,dc=AD-DAP_TEST,dc=testdap,dc=com'
+object_class = 'group'
 attr = {
     'cn': 'TestUsers',
     'member': 'uid=Administrator,ou=Users,dc=AD-DAP_TEST,dc=testdap,dc=com',
@@ -28,3 +27,4 @@ attr = {
     'sAMAccountName': 'TestGroup'
 }
 conn.add(group_dn, object_class, attr)
+print(conn)
