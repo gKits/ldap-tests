@@ -19,7 +19,7 @@ conn = Connection(server, auto_bind=True, user='TESTDAP\\Administrator', passwor
 conn.extend.standard.who_am_i()
 
 group_dn = 'cn=TestUsers,ou=TestOU,dc=AD-DAP_TEST,dc=testdap,dc=com'
-object_class = 'group'
+object_class = 'groupOfNames'
 attr = {
     'cn': 'TestUsers',
     'member': 'uid=Administrator,ou=Users,dc=AD-DAP_TEST,dc=testdap,dc=com',
