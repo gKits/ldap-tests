@@ -7,7 +7,10 @@ from ldap3 import (
 )
 import ssl
 
-tls_config = Tls(validate=ssl.CERT_NONE, version=ssl.PROTOCOL_TLSv1)
+tls_config = Tls(
+    validate=ssl.CERT_NONE,
+    # version=ssl.PROTOCOL_TLSv1
+)
 server = Server('172.16.221.2', get_info=ALL, use_ssl=True, tls=tls_config)
 # conn = Connection(server)
 # conn.bind()
