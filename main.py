@@ -26,4 +26,4 @@ attr = {
     'description': 'Test group'
 }
 conn.add(group_dn, object_class, attr)
-print(conn)
+print(conn.result)
