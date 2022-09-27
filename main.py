@@ -10,5 +10,5 @@ server = Server('172.16.221.2', get_info=ALL)
 # conn.bind()
 
 conn = Connection(server, auto_bind=True, user='TESTDAP\\Administrator', password='Test123!', authentication=NTLM)
-print(conn)
 conn.extend.standard.who_am_i()
+print(conn)
