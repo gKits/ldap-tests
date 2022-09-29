@@ -18,7 +18,7 @@ server = Server('172.16.221.2', get_info=ALL, use_ssl=False, tls=tls_config)
 conn = Connection(server, auto_bind=True, user='TESTDAP\\Administrator', password='Test123!', authentication=NTLM)
 conn.extend.standard.who_am_i()
 
-conn.search(search_base='DC=ad_test-dap,DC=testdap,DC=com', search_filter='((objectClass=*)(sAMAccountName=Administrator))')
+conn.search(search_base='DC=ad_test-dap,DC=testdap,DC=com', search_filter='(sAMAccountName=Administrator)')
 print(conn.result)
 
 group_dn = 'cn=TestUsers,ou=TestOU,dc=ad-dap_test,dc=testdap,dc=com'
