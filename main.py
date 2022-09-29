@@ -18,11 +18,11 @@ server = Server('172.16.221.2', get_info=ALL, use_ssl=False, tls=tls_config)
 conn = Connection(server, auto_bind=True, user='TESTDAP\\Administrator', password='Test123!', authentication=NTLM)
 conn.extend.standard.who_am_i()
 
-group_dn = 'cn=TestUsers,ou=TestOU,dc=AD-DAP_TEST,dc=TESTDAP,dc=com'
+group_dn = 'cn=TestUsers,ou=TestOU,dc=ad-dap_test,dc=testdap,dc=com'
 object_class = 'groupOfNames'
 attr = {
     'cn': 'TestUsers',
-    'member': 'uid=Administrator,ou=Users,dc=AD-DAP_TEST,dc=TESTDAP,dc=com',
+    'member': 'uid=Administrator,ou=Users,dc=ad-dap_test,dc=testdap,dc=com',
     'description': 'Test group'
 }
 conn.add(group_dn, object_class, attr)
