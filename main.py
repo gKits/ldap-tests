@@ -22,7 +22,7 @@ group_dn = 'cn=TestUsers,ou=TestOU,dc=ad-dap_test,dc=testdap,dc=com'
 object_class = 'groupOfNames'
 attr = {
     'cn': 'TestUsers',
-    'member': 'uid=Administrator,ou=Users,dc=ad-dap_test,dc=testdap,dc=com',
+    # 'member': 'uid=Administrator,ou=Users,dc=ad-dap_test,dc=testdap,dc=com',
     'description': 'Test group'
 }
 conn.add(group_dn, object_class, attr)
