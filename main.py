@@ -15,8 +15,7 @@ usersDnList = []
 
 
 server = Server(serverName, get_info=ALL)
-conn = Connection(server, user=connUser, password=connUserPwd, authentication=NTLM)
-conn.bind()
+conn = Connection(server, auto_bind=True, user=connUser, password=connUserPwd, authentication=NTLM)
 
 conn.add(usersOU, 'organizationalUnit')
 conn.add(groupsDN, 'organizationalUnit')
