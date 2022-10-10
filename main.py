@@ -3,6 +3,7 @@ from ldap3 import (
     Connection,
     ALL,
     NTLM,
+    MODIFY_ADD,
     Tls,
 )
 import ssl
@@ -16,17 +17,11 @@ server = Server('172.16.221.2', get_info=ALL, use_ssl=False, tls=tls_config)
 # conn.bind()
 
 conn = Connection(server, auto_bind=True, user='TESTDAP\\Administrator', password='Test123!', authentication=NTLM)
-conn.extend.standard.who_am_i()
 
 conn.search(search_base='cn=Administrator,DC=ad-dap_test,DC=testdap,DC=com', search_filter='(sAMAccountName=Administrator)')
 print(conn.result)
 
-group_dn = 'cn=TestUsers,ou=TestOU,dc=ad-dap_test,dc=testdap,dc=com'
-object_class = 'groupOfNames'
-attr = {
-    'cn': 'TestUsers',
-    # 'member': 'uid=Administrator,ou=Users,dc=ad-dap_test,dc=testdap,dc=com',
-    'description': 'Test group'
-}
-conn.add(group_dn, object_class, attr)
+group_dn = 'CN=TestGroup2,OU=TestOU,DC=testdap,DC=com'
+user_dn = 'CN=Test User1,OU=TestOU,DC=testdap,DC=com'
+conn.modify_s(group_dn, [MODIFY_ADD, 'member', [user_dn]])
 print(conn.result)
