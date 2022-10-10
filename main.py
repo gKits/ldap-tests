@@ -1,8 +1,10 @@
-from ldap3 import Server, Connection, ALL, NTLM
+from ldap3 import Server, Connection, ALL, NTLM, Tls
 from ldap3.extend.microsoft.addMembersToGroups import ad_add_members_to_groups as addUsersToGroups
 from misc import RANDOM_FIRSTNAMES, RANDOM_GROUP_NAME, RANDOM_LASTNAMES
 from random import randint, choice
+from ssl import CERT_NONE
 
+tls_config = Tls(validate=CERT_NONE)
 
 serverName = '172.16.221.2'
 connUser = 'TESTDAP\\Administrator'
@@ -14,7 +16,7 @@ groupsDnList = []
 usersDnList = []
 
 
-server = Server(serverName, get_info=ALL)
+server = Server(serverName, get_info=ALL, use_ssl=False, tls=tls_config)
 conn = Connection(server, auto_bind=True, user=connUser, password=connUserPwd, authentication=NTLM)
 
 conn.add(usersOU, 'organizationalUnit')
