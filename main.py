@@ -1,6 +1,6 @@
 from ldap3 import Server, Connection, ALL, NTLM
 from ldap3.extend.microsoft.addMembersToGroups import ad_add_members_to_groups as addUsersToGroups
-from .misc import RANDOM_FIRSTNAMES, RANDOM_GROUP_NAME, RANDOM_LASTNAMES
+from misc import RANDOM_FIRSTNAMES, RANDOM_GROUP_NAME, RANDOM_LASTNAMES
 from random import randint, choice
 
 
