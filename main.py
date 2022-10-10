@@ -23,5 +23,5 @@ print(conn.result)
 
 group_dn = 'CN=TestGroup2,OU=TestOU,DC=testdap,DC=com'
 user_dn = 'CN=Test User1,OU=TestOU,DC=testdap,DC=com'
-conn.modify_s(group_dn, [MODIFY_ADD, 'member', [user_dn]])
+conn.modify(group_dn, [MODIFY_ADD, 'member', [user_dn]])
 print(conn.result)
