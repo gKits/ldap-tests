@@ -4,7 +4,7 @@ from misc import RANDOM_FIRSTNAMES, RANDOM_GROUP_NAME, RANDOM_LASTNAMES
 from random import randint, choice
 
 
-serverName = 'AD-DAP_TEST.testdap.com'
+serverName = '172.16.221.2'
 connUser = 'TESTDAP\\Administrator'
 connUserPwd = 'Test123!'
 usersOU = 'OU=test-ou,DC=testdap,DC=com'
