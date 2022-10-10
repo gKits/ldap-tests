@@ -23,7 +23,7 @@ conn.add(usersOU, 'organizationalUnit')
 conn.add(groupsDN, 'organizationalUnit')
 
 for group in RANDOM_GROUP_NAME:
-    currentGroup = f'cn={group},ou=test-groups,dc=stand,dc=local'
+    currentGroup = f'cn={group},ou=test-groups,dc=testdap,dc=com'
     groupsDnList.append(currentGroup)
     conn.add(currentGroup, 'group')
 
@@ -31,7 +31,7 @@ for group in RANDOM_GROUP_NAME:
 for _ in range(100):
     firstname = RANDOM_FIRSTNAMES[randint(len(RANDOM_FIRSTNAMES))]
     lastname = RANDOM_LASTNAMES[randint(len(RANDOM_LASTNAMES))]
-    currentUser = f'cn={firstname}.{lastname},ou=test-ou,dc=stand,dc=local'
+    currentUser = f'cn={firstname}.{lastname},ou=test-ou,dc=testdap,dc=com'
     usersDnList.append(currentUser)
     conn.add(
         currentUser,
