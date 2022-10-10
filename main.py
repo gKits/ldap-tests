@@ -29,8 +29,8 @@ for group in RANDOM_GROUP_NAME:
 
 
 for _ in range(100):
-    firstname = RANDOM_FIRSTNAMES[randint(len(RANDOM_FIRSTNAMES))]
-    lastname = RANDOM_LASTNAMES[randint(len(RANDOM_LASTNAMES))]
+    firstname = RANDOM_FIRSTNAMES[randint(0, len(RANDOM_FIRSTNAMES) - 1)]
+    lastname = RANDOM_LASTNAMES[randint(0, len(RANDOM_LASTNAMES) - 1)]
     currentUser = f'cn={firstname}.{lastname},ou=test-ou,dc=testdap,dc=com'
     usersDnList.append(currentUser)
     conn.add(
