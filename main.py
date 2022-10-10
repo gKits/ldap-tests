@@ -20,12 +20,15 @@ server = Server(serverName, get_info=ALL, use_ssl=False, tls=tls_config)
 conn = Connection(server, auto_bind=True, user=connUser, password=connUserPwd, authentication=NTLM)
 
 conn.add(usersOU, 'organizationalUnit')
+print(conn.result)
 conn.add(groupsDN, 'organizationalUnit')
+print(conn.result)
 
 for group in RANDOM_GROUP_NAME:
     currentGroup = f'cn={group},ou=test-groups,dc=testdap,dc=com'
     groupsDnList.append(currentGroup)
     conn.add(currentGroup, 'group')
+    print(conn.result)
 
 
 for _ in range(100):
@@ -43,8 +46,10 @@ for _ in range(100):
             'telephoneNumber': 1111
         }
     )
+    print(conn.result)
 
 for _ in range(0, 300):
     rndUser = choice(usersDnList)
     rndGroup = choice(groupsDnList)
     addUsersToGroups(conn, rndUser, rndGroup)
+    print(conn.result)
