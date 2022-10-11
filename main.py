@@ -63,3 +63,4 @@ conn.search(
 
 for entry in conn.entries:
     print(entry.member)
+    print(type(entry.member))
