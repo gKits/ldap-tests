@@ -19,37 +19,47 @@ usersDnList = []
 server = Server(serverName, get_info=ALL, use_ssl=False, tls=tls_config)
 conn = Connection(server, auto_bind=True, user=connUser, password=connUserPwd, authentication=NTLM)
 
-conn.add(usersOU, 'organizationalUnit')
-print(conn.result)
-conn.add(groupsDN, 'organizationalUnit')
-print(conn.result)
+# conn.add(usersOU, 'organizationalUnit')
+# print(conn.result)
+# conn.add(groupsDN, 'organizationalUnit')
+# print(conn.result)
 
-for group in RANDOM_GROUP_NAME:
-    currentGroup = f'cn={group},ou=test-groups,dc=testdap,dc=com'
-    groupsDnList.append(currentGroup)
-    conn.add(currentGroup, 'Group')
-    print(conn.result)
+# for group in RANDOM_GROUP_NAME:
+#     currentGroup = f'cn={group},ou=test-groups,dc=testdap,dc=com'
+#     groupsDnList.append(currentGroup)
+#     conn.add(currentGroup, 'Group')
+#     print(conn.result)
 
 
-for _ in range(100):
-    firstname = RANDOM_FIRSTNAMES[randint(0, len(RANDOM_FIRSTNAMES) - 1)]
-    lastname = RANDOM_LASTNAMES[randint(0, len(RANDOM_LASTNAMES) - 1)]
-    currentUser = f'cn={firstname}.{lastname},ou=test-ou,dc=testdap,dc=com'
-    usersDnList.append(currentUser)
-    conn.add(
-        currentUser,
-        'User',
-        {
-            'givenName': firstname,
-            'sn': lastname,
-            'departmentNumber': 'DEV',
-            'telephoneNumber': 1111
-        }
-    )
-    print(conn.result)
+# for _ in range(100):
+#     firstname = RANDOM_FIRSTNAMES[randint(0, len(RANDOM_FIRSTNAMES) - 1)]
+#     lastname = RANDOM_LASTNAMES[randint(0, len(RANDOM_LASTNAMES) - 1)]
+#     currentUser = f'cn={firstname}.{lastname},ou=test-ou,dc=testdap,dc=com'
+#     usersDnList.append(currentUser)
+#     conn.add(
+#         currentUser,
+#         'User',
+#         {
+#             'givenName': firstname,
+#             'sn': lastname,
+#             'departmentNumber': 'DEV',
+#             'telephoneNumber': 1111
+#         }
+#     )
+#     print(conn.result)
 
-for _ in range(100):
-    rndUser = choice(usersDnList)
-    rndGroup = choice(groupsDnList)
-    addUsersToGroups(conn, rndUser, rndGroup)
-    print(conn.result)
+# for _ in range(100):
+#     rndUser = choice(usersDnList)
+#     rndGroup = choice(groupsDnList)
+#     addUsersToGroups(conn, rndUser, rndGroup)
+#     print(conn.result)
+
+conn.search(
+    search_base=choice(groupsDnList),
+    search_filter='(objectClass=group)',
+    search_scope='SUBTREE',
+    attributes=['member']
+)
+
+for entry in conn.entries:
+    print(entry.member.values)
