@@ -55,7 +55,7 @@ conn = Connection(server, auto_bind=True, user=connUser, password=connUserPwd, a
 #     print(conn.result)
 
 conn.search(
-    search_base=choice(groupsDnList),
+    search_base=f'cn={choice(RANDOM_GROUP_NAME)},ou=test-groups,dc=testdap,dc=com',
     search_filter='(objectClass=group)',
     search_scope='SUBTREE',
     attributes=['member']
