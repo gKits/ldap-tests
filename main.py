@@ -63,4 +63,5 @@ conn.search(
 
 for entry in conn.entries:
     for member in entry:
-        print(member)
+        for m in member:
+            print(m)
