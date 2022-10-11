@@ -61,5 +61,5 @@ conn.search(
     attributes=['member']
 )
 
-for member in conn.entries.member:
+for member in conn.entries[0]:
     print(member)
