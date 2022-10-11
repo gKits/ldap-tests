@@ -10,7 +10,7 @@ serverName = '172.16.221.2'
 connUser = 'TESTDAP\\Administrator'
 connUserPwd = 'Test123!'
 usersOU = 'OU=test-ou,DC=testdap,DC=com'
-groupsDN = 'OU=test-groups,OU=test-ou,DC=testdap,DC=com'
+groupsDN = 'OU=test-groups,DC=testdap,DC=com'
 
 groupsDnList = []
 usersDnList = []
