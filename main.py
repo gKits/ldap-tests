@@ -61,6 +61,5 @@ conn.search(
     attributes=['member']
 )
 
-for entry in conn.entries:
-    print(entry.member)
-    print(type(entry.member))
+for member in conn.entries.member:
+    print(member)
