@@ -62,5 +62,4 @@ conn.search(
 )
 
 for entry in conn.entries:
-    for member in entry.member:
-        print(member.value)
+    print(entry.member)
