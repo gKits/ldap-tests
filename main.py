@@ -31,25 +31,25 @@ for group in RANDOM_GROUP_NAME:
     print(conn.result)
 
 
-for _ in range(100):
-    firstname = RANDOM_FIRSTNAMES[randint(0, len(RANDOM_FIRSTNAMES) - 1)]
-    lastname = RANDOM_LASTNAMES[randint(0, len(RANDOM_LASTNAMES) - 1)]
-    currentUser = f'cn={firstname}.{lastname},ou=test-ou,dc=testdap,dc=com'
-    usersDnList.append(currentUser)
-    conn.add(
-        currentUser,
-        'User',
-        {
-            'givenName': firstname,
-            'sn': lastname,
-            'departmentNumber': 'DEV',
-            'telephoneNumber': 1111
-        }
-    )
-    print(conn.result)
+# for _ in range(100):
+#     firstname = RANDOM_FIRSTNAMES[randint(0, len(RANDOM_FIRSTNAMES) - 1)]
+#     lastname = RANDOM_LASTNAMES[randint(0, len(RANDOM_LASTNAMES) - 1)]
+#     currentUser = f'cn={firstname}.{lastname},ou=test-ou,dc=testdap,dc=com'
+#     usersDnList.append(currentUser)
+#     conn.add(
+#         currentUser,
+#         'User',
+#         {
+#             'givenName': firstname,
+#             'sn': lastname,
+#             'departmentNumber': 'DEV',
+#             'telephoneNumber': 1111
+#         }
+#     )
+#     print(conn.result)
 
-for _ in range(100):
-    rndUser = choice(usersDnList)
-    rndGroup = choice(groupsDnList)
-    addUsersToGroups(conn, rndUser, rndGroup)
-    print(conn.result)
+# for _ in range(100):
+#     rndUser = choice(usersDnList)
+#     rndGroup = choice(groupsDnList)
+#     addUsersToGroups(conn, rndUser, rndGroup)
+#     print(conn.result)
