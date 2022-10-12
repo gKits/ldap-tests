@@ -62,4 +62,4 @@ result = conn.search(
 )
 
 
-print(result)
+print(conn.result)
