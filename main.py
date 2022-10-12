@@ -61,4 +61,5 @@ conn.search(
     attributes=['member']
 )
 
-print(conn.entries)
+print(conn.entries.member)
+print(type(conn.entries.member))
