@@ -54,12 +54,11 @@ conn = Connection(server, auto_bind=True, user=connUser, password=connUserPwd, a
 #     addUsersToGroups(conn, rndUser, rndGroup)
 #     print(conn.result)
 
-result = conn.search(
+conn.search(
     search_base=f'cn={choice(RANDOM_GROUP_NAME)},ou=test-groups,dc=testdap,dc=com',
     search_filter='(objectClass=group)',
     search_scope='SUBTREE',
     attributes=['member']
 )
 
-
-print(conn.result)
+print(conn.entries)
