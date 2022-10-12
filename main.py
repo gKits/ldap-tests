@@ -62,3 +62,4 @@ conn.search(
 )
 
 print(conn.entries[0])
+print(type(conn.entries[0]))
